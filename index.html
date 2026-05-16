@@ -2,17 +2,25 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="description" content="Portfolio de Samantha— Desarrolladora web & artista multidisciplinaria">
     <title>Samantha — Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAV CON BOTÓN HAMBURGUESA -->
 <nav>
   <a class="nav-logo" href="#">Portafolio.</a>
-  <ul class="nav-links">
+  
+  <!-- Botón hamburguesa -->
+  <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <ul class="nav-links" id="navLinks">
     <li><a href="#aprendiendo">Aprendiendo</a></li>
     <li><a href="#prioridades">Prioridades</a></li>
     <li><a href="#retos">Retos</a></li>
@@ -223,15 +231,7 @@
   <span>Hecho con HTML &amp; CSS — sin excusas.</span>
 </footer>
 
-<script>
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(r => obs.observe(r));
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
