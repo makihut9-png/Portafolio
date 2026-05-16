@@ -671,7 +671,7 @@ html {
         display: flex;
       }
       html {
-  scroll-padding-top: 3rem;
+  scroll-padding-top: 4rem;
 }
       /* Menú oculto por defecto en móvil */
       .nav-links {
