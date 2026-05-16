@@ -17,7 +17,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
-    body {
+    body  {
       min-height: 100vh;
       font-family: var(--font-mono);
       font-weight: 300;
@@ -83,8 +83,17 @@
       100% { background-position: 0 -180px; }
     }
 
-    body > * { position: relative; z-index: 1; }
+body > * {
+  position: relative;
+  z-index: 1;
+}
 
+    .contenedor {
+      margin: 0 auto;
+      width: 100%;       /* Ocupa todo el ancho disponible */
+      max-width: 1200px; /* Pero no crezcas más de esto en pantallas gigantes */
+      box-sizing: border-box; /* Evita que el padding rompa el diseño */
+}
     /* NAV */
     nav {
       position: fixed;
@@ -99,26 +108,45 @@
       backdrop-filter: blur(18px);
     }
 
+    .menu-toggle {
+    display: block; 
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
     .nav-logo {
       font-family: var(--font-display);
       font-size: 2rem;
       font-weight: 300;
+      margin-right: 1rem;
       color: var(--accent);
       letter-spacing: 0.05em;
       text-decoration: none;
     }
 
     .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      list-style: none;
-    }
-
+    display: none; /* Oculto al inicio */
+    flex-direction: column;
+    width: 100%;
+    background-color: #444;
+    position: absolute;
+    top: 100%; /* Se despliega justo debajo de la barra */
+    left: 0;
+}
+    .nav-links li {
+    text-align: center;
+}
+    .nav-links.isActive {
+    display: flex;
+}
     .nav-links a {
+      display: block;
       color: var(--text);
       text-decoration: none;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 2rem;
       border: 1px solid transparent;
       border-radius: 999px;
       background: rgba(124, 58, 237, 0.14);
@@ -134,6 +162,25 @@
       color: var(--accent);
     }
 
+    @media (min-width: 768px) {
+    /* Escondemos el botón de hamburguesa porque en PC no se necesita */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* Restablecemos los enlaces para que se vean horizontales */
+    .nav-links {
+        display: flex !important; /* Forzamos a que se muestre siempre */
+        flex-direction: row;      /* Se alinean uno al lado del otro */
+        position: static;         /* Quita la posición absoluta del celular */
+        width: auto;
+        background-color: transparent;
+    }
+
+    .nav-links li {
+        margin-left: 20px;
+    }
+}
     /* HERO */
     .hero {
       min-height: 100vh;

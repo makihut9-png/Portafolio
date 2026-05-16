@@ -6,13 +6,16 @@
     <meta name="description" content="Portfolio de Samantha— Desarrolladora web & artista multidisciplinaria">
     <title>Samantha — Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
-<!-- NAV -->
+  <section class="contenedor">
+    <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">Portafolio.</a>
-  <ul class="nav-links">
+  <!-- Botón hamburguesa (solo visible en celular) -->
+  <button class="menu-toggle" id="menuToggle">☰</button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#aprendiendo">Aprendiendo</a></li>
     <li><a href="#prioridades">Prioridades</a></li>
     <li><a href="#retos">Retos</a></li>
@@ -233,5 +236,6 @@
   reveals.forEach(r => obs.observe(r));
 </script>
 
+</section>
 </body>
 </html>
